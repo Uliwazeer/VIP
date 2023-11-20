@@ -1,0 +1,545 @@
+(13) You are designing a poster which prints out numbers
+with a unique style applied to each of them. The styling
+is based on the number of closed paths or holes present
+in a giver number. The number of holes that each of the
+digits from 0 to 9 have are equal to the number of
+closed paths in the digit. Their values are:
+1, 2, 3, 5 and 7 = 0 holes.
+0, 4, 6, and 9 = 1 hole.
+
+8 = 2 holes.
+Example if number 3824->3 has 0 holes,8 has 2
+holes,4 has 1hole sum=0+2+1=3.
+=============================SOLUTION================================
+
+#include <stdio.h>
+int countHoles(int digit) {
+  switch (digit) {
+    case 0:
+    case 4:
+    case 6:
+    case 9:
+      return 1;
+    case 8:
+      return 2;
+    default:
+      return 0;
+  }
+}
+int printNumberWithStyle(int number) {
+  int holes[10];
+  for (int i = 0; i < 10; i++) {
+    holes[i] = countHoles(i);
+  }
+  while (number > 0) {
+    int digit = number % 10;
+    switch (holes[digit]) {
+      case 0:
+        printf("0");
+        break;
+      case 1:
+        printf("1");
+        break;
+      case 2:
+        printf("2");
+        break;
+    }
+    number /= 10;
+  }
+}
+int sumDigits(int number) {
+  int sum = 0;
+  while (number > 0) {
+    int digit = number % 10;
+    sum += digit;
+    number /= 10;
+  }
+  return sum;
+}
+
+int main() {
+  int number;
+  while(1){
+  printf("Enter a number: ");
+  scanf("%d", &number);
+ int x= printNumberWithStyle(number);
+  int sum = sumDigits(x);
+  printf("Sum of digits: %d\n", x);
+  }
+  return 0;
+}
+
+*********************************************************************
+(12) write a program to take even numbers from user and
+print the sum of them after each entry if the user enters
+2 odd number the program print "bye" and stopped.
+=============================SOLUTION================================
+#include <stdio.h>
+
+int main() {
+    int num, sum = 0,count = 0;
+
+    for (;;) {
+        printf("Enter Your even number: ");
+        scanf("%d", &num);
+
+        if (num % 2 != 0) {
+            count++;
+            if (count == 2) {
+                printf("Bye Ya Man.\n");
+                break;
+            } else {
+                printf("Try again.\n");
+            }
+        } else {
+            sum += num;
+            printf("Sum of even numbers: %d\n", sum);
+        }
+    }
+
+    return 0;
+}
+
+*******************************************************************
+(11) Write a program to sum the digits in a decimal number
+145 -> 1+4+5=10.
+=============================SOLUTION==============================
+#include <stdio.h>
+
+int main() {
+    int BaseDecimal, NumDigit, sum = 1;
+
+    printf("Enter Your number: ");
+    scanf("%d", &BaseDecimal);
+
+    for (; BaseDecimal > 1; ) {
+         NumDigit = BaseDecimal % 10;
+        sum = sum + NumDigit;
+        BaseDecimal = BaseDecimal/ 10;
+    }
+
+    printf("Sum of them: %d\n", sum);
+
+    return 0;
+}
+********************************************************************
+(10) Write a program that reads a positive integer and check
+if this number is a base of 2 like 1,2,4,8,16,32, 64...
+=============================SOLUTION===============================
+#include <stdio.h>
+
+int main() {
+  int num;
+  
+  printf("Enter Your Positive Number: ");
+  scanf("%d",&num);
+  
+  if(num%2==0)
+  {
+      printf("Base Of 2 number %d",num);
+  }
+  else
+  {
+      printf("Not Base Of 2");
+  }
+  
+  
+    return 0;
+}
+*********************************************************************
+(9) Write a program that reads a positive integer and
+checks if it is a perfect square.
+=============================SOLUTION===============================
+
+#include<stdio.h>
+int main()
+{
+    printf("\n\n\t\tSTUDYTONIGHT - BEST DEVELOPER ENGINEER\n\n\n");
+
+    int i, number;
+    printf("ENTER YOUR NUMBER YA USER: ");
+    scanf("%d", &number);
+
+
+    for(i = 0; i <= number; i++)
+    {
+        if(number == i*i)
+        {
+            printf("\n\n\n\t\t\tYOUR ENTERED NUMBER %d IS A PERFECT SQUARE\n\n\n", number);
+
+            printf("\n\n\t\t\tHAVE A CODING FUN YA UASER!\n\n\n");
+            return 0;
+        }
+    }
+    printf("\n\n\n\t\t\tYOUR ENTERED NUMBER %d IS NOT A PERFECT SQUARE\n", number);
+    printf("\n\n\t\t\tYOU HAVE BETTER!\n\n\n");
+    return 0;
+}
+*******************************************************************
+(8) Write a program that reads a positive integer and
+checks if it is a prime.
+=============================SOLUTION===============================
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i,n,flag,j;
+
+    while(1)
+    {
+        scanf("%d",&n);
+
+        for(i=2; i<n; i=i+1)
+        {
+            flag=1;
+            for(j=2; j<i&&flag==1; j=j+1)
+            {
+                if(i%j==0)
+                {
+                    flag=0;
+                }
+
+            }
+            if(flag==1)		//IF I WANNA NUMS SMALL NUM WHICH USER INPUT NOT RIME if(flag==0)
+            printf("%d ",i);
+        }
+        printf("\n");
+    }
+
+    return 0;
+
+}
+***************************************************************************
+(7) Write a program that reads a positive integer and
+computes the factorial.
+=============================SOLUTION======================================
+#include <stdio.h>
+
+int main() {
+    unsigned long Num1,Num2,count, fact = 1,num,sum = 0;
+
+    printf("Enter Your Numbers : ");
+    scanf("%d",&count);
+
+    for(int i=1;i<=count;i++)
+    {
+    printf("%d\n",i);
+    sum +=i;
+    fact *=i;
+    }
+
+
+
+    printf("%d\n",fact);
+
+
+    return 0;
+}
+***************************************************************************
+(6) Write a program to calculate the power of a number.
+The number and its power are input from user.
+=============================SOLUTION======================================
+#include <stdio.h>
+
+int main() {
+    int Num1,Num2, sum = 0;
+    printf("Enter You First As Base Number : ");
+    scanf("%d",&Num1);
+
+
+     printf("Enter You Second As Exponent Number : ");
+     scanf("%d",&Num2);
+
+     sum = pow(Num1,Num2);
+     printf("%d",sum);
+
+    return 0;
+}
+***************************************************************************
+(5) Write a program that take two numbers and calculate
+the reminder without using % operation.  4 WAY
+=============================SOLUTION======================================
+//FIRST WAY
+//Program to get remainder without using % operator.
+ 
+#include <stdio.h>
+int main()
+{
+    int a,b,rem;
+    printf("Enter first number :");
+    scanf("%d",&a);
+    printf("Enter second number :");
+    scanf("%d",&b);
+ 
+    rem=a-(a/b)*b;
+ 
+    printf("Remainder is = %d\n",rem);
+    return 0;
+}
+*********************************************************************************************
+//SECOND WAY
+#include <stdio.h>
+
+int main()
+{
+
+    int no, divisor, remainder;
+
+    printf("Enter the number: ");
+    scanf("%d", &no);
+
+    printf("Enter the divisor: ");
+    scanf("%d", &divisor);
+
+    while (no >= divisor)
+    {
+        no = no - divisor;
+    }
+
+    remainder = no;
+
+    printf("The remainder is %d", remainder);
+
+    return 0;
+}
+*********************************************************************************************
+//THIRD WAY
+#include <stdio.h>
+
+int getRemainder(int no, int divisor)
+{
+    int multiplier = 1;
+    int product = 0;
+
+    while (product <= no)
+    {
+        product = divisor * multiplier;
+        multiplier++;
+    }
+
+    return no - (product - divisor);
+}
+
+int main()
+{
+    int no, divisor, remainder;
+
+    printf("Enter the number: ");
+    scanf("%d", &no);
+
+    printf("Enter the divisor: ");
+    scanf("%d", &divisor);
+
+    remainder = getRemainder(no, divisor);
+
+    printf("The remainder is %d", remainder);
+
+    return 0;
+}
+*******************************************************************************************
+//FOURTH WAY
+#include <stdio.h>
+
+int getRemainder(int no, int divisor)
+{
+    return no - divisor * (no / divisor);
+}
+
+int main()
+{
+    int no, divisor, remainder;
+
+    printf("Enter the number : ");
+    scanf("%d", &no);
+
+    printf("Enter the divisor : ");
+    scanf("%d", &divisor);
+
+    remainder = getRemainder(no, divisor);
+
+    printf("The remainder is %d ", remainder);
+
+    return 0;
+}
+**********************************************************************************
+(4) Write a program that take two numbers and multiply
+them without using * operation.
+=============================SOLUTION=============================================
+//Multiplication of two numbers
+#include <stdio.h>
+
+int main()
+{
+   int x, y; //declaring two integer variable
+   int product = 0; //initializing product to zero
+
+   printf("Enter two integers:\n");
+   scanf("%d%d", &x, &y);
+
+   //loop to calculate product
+   while(y != 0)
+   {
+      product += x;
+      y--;
+   }
+
+   printf("\nProuduct = %d\n", product);
+   return 0;
+}
+*********************************************************************************
+//SECOND WAY
+//Multiplication of two numbers using recursive function
+#include <stdio.h>
+
+//function prototype for recursive function
+int product( int n1, int n2);
+
+int main ()
+{
+   int x, y;
+
+   printf("Enter two integers:\n");
+   scanf("%d%d", &x, &y);
+
+   //calling recursive function
+   printf("\nProuduct = %d\n", product(x, y));
+   return 0;
+}
+
+//body of recursive function
+int product(int n1, int n2)
+{
+   if(n2 == 0)
+      return 0;
+
+   if(n2 > 0)
+      return (n1 + product(n1, n2 - 1));
+
+   if(n2 < 0)
+      return -product(n1, -n2);
+}
+**********************************************************************************
+//THIRD WAY
+//Multiplication of two numbers using pointer
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int x, y;
+   char *p;
+
+   printf("Enter two integers:\n");
+   scanf("%d%d", &x, &y);
+
+   p = (char *)x;
+
+   while(--y)
+      p = &p[x];
+
+   printf("\nProuduct = %d\n", p);
+   free(p);
+   return 0;
+}
+**********************************************************************************
+(3) Write a program to take numbers from user and
+calculate the sum of them (let users choose the No of
+numbers.
+=============================SOLUTION=============================================
+#include <stdio.h>
+
+int main() {
+    int num, sum = 0, count;
+    printf("How many numbers do you want to sum? ");
+    scanf("%d", &count);
+
+    for (int i = 1; i <= count; i++) {
+        printf("Enter number %d: ", i);
+        scanf("%d", &num);
+        sum += num;
+    }
+
+    printf("The sum of the numbers is %d\n", sum);
+    return 0;
+}
+
+
+**********************************************************************************
+(2) Write a program to take numbers from user and find the
+max and min from them (let users choose the No of
+numbers.
+=============================SOLUTION=============================================
+#include <stdio.h>
+
+int main() {
+    int a,b,max,min=1;
+    int num, i,sum = 0, count;
+    printf("How many numbers do you want to sum? ");
+    scanf("%d", &count);
+
+    for (int i = 1; i <= count; i++) {
+        printf("Enter number %d: ", i);
+        scanf("%d", &num);
+        sum += num;
+
+    }
+
+    if(count>i){
+        max=num;
+        min=i;
+     }
+
+     if(i>num){
+            max=i;
+            min=count;
+     }
+     printf("Max Num Is %d\n : ",max);
+     printf("Min Num Is %d\n : ",min);
+
+
+
+    printf("The sum of the numbers is %d\n", sum);
+//****************************************************************************
+   
+    return 0;
+}
+
+**********************************************************************************
+(1) Write a program to take 2 numbers from user and
+calculate sum of all numbers between them.
+=============================SOLUTION=============================================
+
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    int Num1, Num2;
+    int i,sum,count;
+
+    printf("Enter Your First Num1: ");
+    scanf("%d",&Num1);
+
+    printf("Enter Your Second Num2: ");
+    scanf("%d",&Num2);
+
+    for(i=Num1;i<Num2;i++)
+    {
+
+       sum = i +1;
+       printf("%d\n",sum);
+
+    }
+    for(i=Num2;i<Num1;i++)
+    {
+
+       sum = i +1;
+       printf("%d\n",sum);
+       // printf("The sum of all numbers between %d and %d is %d\n"
+       }
+    
+    return 0;
+}
+
+************************************************************************************
