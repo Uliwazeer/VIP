@@ -1,0 +1,225 @@
+									#TASK_01.....LEC 02
+				Importance Of HEXADECIMAL
+It's a system start from [0 1 2 3 4 5 6 7 8 9 A B C D E F].
+Usages Are
+1-Adresses In Memory
+2-Colors Codes
+3-More Readably Than Binary Codes
+4-MCU Programming
+
+***********************************************************
+								1-Compiler  & Interpreter
+								2-Scripting & Programming
+								3-Framework & Library
+***********************************************************
+Interpreter	
+					
+Translates program one statement at a time.			
+Interpreters usually take less amount of time to analyze the source code. However, the overall execution time is comparatively slower than compilers.		
+Generates Object Code which further requires linking, hence requires more memory.
+Programming languages like JavaScript, Python, Ruby use interpreters.	
+***********************************************************
+Compiler
+
+Scans the entire program and translates it as a whole into machine code.
+Compilers usually take a large amount of time to analyze the source code. However, the overall execution time is comparatively faster than interpreters.
+No Object Code is generated, hence are memory efficient.
+Programming languages like C, C++, Java use compilers.
+***********************************************************
+###################################################################################################
+									#TASK_02.....LEC 03
+
+
+			What Happened When You Divide On Zero [/0]...??
+1-Compiler Excuite code and processor find there Divided by 0 and stop this process and make in ifinite loop
+2-craching and Hanging in CPU
+3-most implementations use the IEEE 754 standard, where division by 0 is well defined. 
+4-0 / 0 gives a well defined result of NaN (not-a-number)
+5-x / 0 for x ≠ 0 gives either +Infinity or -Infinity, depending on the sign of x.
+6-In languages like C, C++ etc. division by zero invokes undefined behaviour
+7-Many processors have some kind of built-in "divide" instruction, which will behave differently depending on the processor. 
+On Intel 32bit and 64 bit processors, 
+the "divide" instructions will crash your application when you try to divide by zero. Other processors may behave differently.
+
+If a compiler detects that a division by zero will happen when you execute some code, and the compiler is nice to its users, 
+it will likely give you a warning, and generate a built-in "divide" instruction so that the behaviour is the same.	
+*******************************************************************************************************************
+
+
+PROGRAMM PRINT NUMBER IF ODD OR EVEN WITH 6 WAYS....
+******************************************************************************************************
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+/*  PRINT EVEN AND ODD NUMBER WITH 6 DIFFERENT WAYS*/
+
+
+/*FIRST WAY
+
+    int num;
+    printf("ENTER YOUR NUMBER YA USER: ");
+    fflush(stdin);
+    scanf("%d",&num);
+
+
+    if(num % 2==0)
+        printf("YOUR ENTERED NUMBER %d IS EVEN ",num);
+
+    else
+        printf("YOUR ENTERED NUMBER %d IS ODD ",num);
+        */
+ //**********************************************************************
+ /*SECOND WAY
+         int num;
+    printf("ENTER YOUR NUMBER YA USER: ");
+    fflush(stdin);
+    scanf("%d",&num);
+
+    (num % 2==0)? printf("YOUR ENTERED NUMBER %d IS EVEN ",num) : printf("YOUR ENTERED NUMBER %d IS ODD ",num);
+*/
+
+/*THIRD WAY
+ int num;
+    printf("ENTER YOUR NUMBER YA USER: ");
+    fflush(stdin);
+    scanf("%d",&num);
+
+     if(num == ( num>>1 ) << 1){
+        printf("YOUR ENTERED NUMBER %d IS EVEN ",num);
+     }
+    else{
+        printf("YOUR ENTERED NUMBER %d IS ODD ",num);
+     }
+*/
+
+/*FOURTH WAY
+ int num;
+    printf("ENTER YOUR NUMBER YA USER: ");
+    fflush(stdin);
+    scanf("%d",&num);
+
+     if(num & 1)
+    {
+       printf("YOUR ENTERED NUMBER %d IS ODD ",num);
+    }
+    else
+    {
+        printf("YOUR ENTERED NUMBER %d IS EVEN ",num);
+    }
+    */
+
+    /*FIFTH WAY
+     int num;
+    printf("ENTER YOUR NUMBER YA USER: ");
+    fflush(stdin);
+    scanf("%d",&num);
+ if((num & 1) == 0)
+        printf("YOUR ENTERED NUMBER %d IS EVEN ",num);
+ else
+    printf("YOUR ENTERED NUMBER %d IS ODD ",num);
+
+*/
+/*SIXTH WAY
+ int num;
+    printf("ENTER YOUR NUMBER YA USER: ");
+    fflush(stdin);
+    scanf("%d",&num);
+
+      if ( num & 1 == 1 )
+            printf("YOUR ENTERED NUMBER %d IS ODD ",num);
+     else
+        printf("YOUR ENTERED NUMBER %d IS EVEN ",num);
+
+*/
+            return 0;
+
+}
+***********************************************************************************
+PRINT MAX NUM BETWEEN 3 NUMBERS WITH 3 WAYS...
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+//PRINT MAX NUMBER BETWEEN 3 NUMBERS WITH 3 WAYS
+
+/*
+    int num1,num2,num3,max;
+    printf("ENTER YOUR FIRST NUMBER YA USER: ");
+    scanf(" %d",&num1);
+    printf("ENTER YOUR SECOND NUMBER YA USER: ");
+    scanf(" %d",&num2);
+    printf("ENTER YOUR THIRD NUMBER YA USER: ");
+    scanf(" %d",&num3);
+
+    max=num1;
+    if(max<num2)
+        max=num2;
+    if(max<num3)
+        max=num3;
+
+
+    printf("YOUR MAX NUMBER BETWEEN %d and %d and %d IS %d",num1,num2,num3,max);
+*/
+
+/*SECOND WAY
+    int num1,num2,num3,max;
+    printf("ENTER YOUR FIRST NUMBER YA USER: ");
+    scanf(" %d",&num1);
+    printf("ENTER YOUR SECOND NUMBER YA USER: ");
+    scanf(" %d",&num2);
+    printf("ENTER YOUR THIRD NUMBER YA USER: ");
+    scanf(" %d",&num3);
+
+    if(num1>num2 && num1>num3)
+       printf("YOUR MAX NUMBER BETWEEN %d and %d and %d IS %d",num1,num2,num3,num1);
+     if(num2>num1 && num2>num3)
+       printf("YOUR MAX NUMBER BETWEEN %d and %d and %d IS %d",num1,num2,num3,num2);
+     if(num3>num2 && num3>num1)
+       printf("YOUR MAX NUMBER BETWEEN %d and %d and %d IS %d",num1,num2,num3,num3);
+
+*/
+
+/*THIRD WAY
+
+    int num1,num2,num3,max;
+    printf("ENTER YOUR FIRST NUMBER YA USER: ");
+    scanf(" %d",&num1);
+    printf("ENTER YOUR SECOND NUMBER YA USER: ");
+    scanf(" %d",&num2);
+    printf("ENTER YOUR THIRD NUMBER YA USER: ");
+    scanf(" %d",&num3);
+
+
+     if (num1>= num2) {
+        if (num1>= num3)
+            printf("YOUR MAX NUMBER BETWEEN %d and %d and %d IS %d",num1,num2,num3,num1);
+        else
+            printf("YOUR MAX NUMBER BETWEEN %d and %d and %d IS %d",num1,num2,num3,num3);
+    }
+    else {
+        if (num2>=num3)
+            printf("YOUR MAX NUMBER BETWEEN %d and %d and %d IS %d",num1,num2,num3,num2);
+        else
+            printf("YOUR MAX NUMBER BETWEEN %d and %d and %d IS %d",num1,num2,num3,num3);
+    }
+
+*/
+
+    return 0;
+
+}
+######################################################################################################
+
+
+
+
+
+
+
+
+
+						

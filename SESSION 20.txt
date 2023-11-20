@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+int *array_scanDynamic(void)
+{
+    int i,size;
+    printf("ENTER YOUR TOTAL NUMS:\n");
+    scanf("%d",&size);
+    int *arr=(int *)malloc(size * sizeof(int));
+    if(arr != (void*)0){
+    for(i=0;i<size;i++)
+        scanf("%d",&arr[i]);
+    }
+     array_print(arr,size);
+     return arr;       
+        
+}
+int main()
+{
+   int *arrr=array_scanDynamic();
+   free(arr);
+      int *arrr2=array_scanDynamic();
+   array_print(arr,5);
+   array_print(arr2,5);
+    return 0;
+}
+***************************************************************************************************
+#include <stdio.h>
+#include <stdlib.h>
+int *array_scanDynamic(int *ptr_size)
+{
+    int i,size;
+    printf("ENTER YOUR TOTAL NUMS:\n");
+    scanf("%d",&size);
+    int *arr=(int *)malloc(size * sizeof(int));
+    if(arr != (void*)0){
+    for(i=0;i<size;i++)
+        scanf("%d",&arr[i]);
+    }
+    *ptr_size = size;
+     array_print(arr,size);
+     return arr;       
+        
+}
+int main()
+{   int s1,s2;
+   int *arrr=array_scanDynamic(&s1);
+   free(arr);
+      int *arrr2=array_scanDynamic(&s2);
+   array_print(arr,s1);
+   array_print(arr2,s2);
+    return 0;
+}
+***************************************************************************************************
+//calloc
+#include <stdio.h>
+#include <stdlib.h>
+int *array_scanDynamic(int *ptr_size)
+{
+    int i,size;
+    printf("ENTER YOUR TOTAL NUMS:\n");
+    scanf("%d",&size);
+    int *arr=(int *)malloc(size * sizeof(int));
+    if(arr != (void*)0){
+    for(i=0;i<size;i++)
+        scanf("%d",&arr[i]);
+    }
+    *ptr_size = size;
+     array_print(arr,size);
+     return arr;       
+        
+}
+int main()
+{  // int s1,s2;
+   //int *arrr=array_scanDynamic(&s1);
+   //free(arr);
+     // int *arrr2=array_scanDynamic(&s2);
+  // array_print(arr,s1);
+  // array_print(arr2,s2);
+  
+  
+  int*p=calloc(10,4);
+  array_print(p,10);
+    return 0;
+}
+***************************************************************************************************

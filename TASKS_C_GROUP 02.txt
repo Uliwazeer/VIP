@@ -1,0 +1,351 @@
+										#TASK_01.......LEC 16
+
+//HANDLE NEGATIVE NUMBER IN FUNCTION TO USE NEGATIVE NUM TO CONVERT TO STRING 
+
+void IntToString(int num,char *str)
+{
+    int i,n;
+    if (num==0)
+    {
+        str[0]='0';
+        str[1]=0;
+        return;
+    }
+    for(i=0; num>0; i++)
+    {
+        n=num%10;
+        str[i]=n+'0';
+        num=num/10;
+    }
+    //str[i]=0;
+   string_reverse(str);
+    if(num<0)
+    {
+        num=num*-1;
+        for(i=1; num>0; i++)
+        {
+            str[0]='-';
+            n=num%10;
+            str[i]=n+'0';
+            num=num/10;
+        }
+    }
+    str[i]=0;
+    string_reverse(str+1);
+}
+
+int main()
+{
+    
+    char s2[100] ;
+    int x=-12345896;
+    
+     while(1)
+     {
+         scanf("%d",&x);
+         IntToString(x,s2);
+         string_print(s2);
+     }
+}
+***************************************************************************************************
+//SWAP WORDS USING 3 WAY
+//FIRST WAY BEST WAY
+#include <stdio.h>
+
+void reverse_string(char* str, int start, int end) {
+    while (start < end) {
+        char temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+void swap_words(char* str) {
+    if (str == NULL) {
+        return;
+    }
+
+    int length = 0;
+    while (str[length] != '\0') {
+        length++;
+    }
+
+    reverse_string(str, 0, length - 1);
+
+    int start = 0;
+    int end = 0;
+    while (end <= length) {
+        if (str[end] == ' ' || str[end] == '\0') {
+            reverse_string(str, start, end - 1);
+            start = end + 1;
+        }
+        end++;
+    }
+}
+
+int main() {
+    char str[] = "MUHAMMED WAZEER EL-DEEN NOUR ALI";
+    printf("ORIGINAL STRING IS : %s\n", str);
+    printf("\n");
+    swap_words(str);
+    printf("SWAPPED STRING IS : %s\n", str);
+
+    return 0;
+}
+***************************************************************************************************
+//SECOND WAY
+
+#include <stdio.h>
+#include <stdlib.h>
+int string_length(const char* str) {
+    int length = 0;
+    
+    while (str[length] != '\0') {
+        length++;
+    }
+    
+    return length;
+}
+int main()
+{
+    char str1[]="MUHAMMED WAZEER EL-DEEN NOUR ALI";
+   int i,j,size,max=0;
+   size=string_length(str1);
+   for(i=size-1;i>=0;i--)
+   {
+       if(str1[i]==' ')
+       {
+           max=i;
+           for(j=i+1;j<size;j++)
+           {
+               printf("%c",str1[j]);
+           }
+           printf(" ");
+           size=i;
+           //printf("size=%d\n",size);
+       }
+       if(i==0)
+       {
+           for (j=0;j<size;j++)
+           {
+
+               printf("%c",str1[j]);
+           }
+       }
+   }
+    return 0;
+}
+***************************************************************************************************
+//THIRD WAY
+#include <stdio.h>
+#include <stdlib.h>
+int string_length(const char* str) {
+    int length = 0;
+    
+    while (str[length] != '\0') {
+        length++;
+    }
+    
+    return length;
+}
+void swap_word(char *str)
+{
+
+    int i,j,size,max=0;
+   size=string_length(str);
+   for(i=size-1;i>=0;i--)
+   {
+       if(str[i]==' ')
+       {
+           max=i;
+           for(j=i+1;j<size;j++)
+           {
+               printf("%c",str[j]);
+           }
+           printf(" ");
+           size=i;
+           //printf("size=%d\n",size);
+       }
+       if(i==0)
+       {
+           for (j=0;j<size;j++)
+           {
+
+               printf("%c",str[j]);
+           }
+       }
+   }
+   printf("\n");
+}
+int main()
+{
+    char str[]="MUHAMMED WAZEER EL-DEEN NOUR ALI";
+     //char str[] = "MUHAMMED WAZEER EL-DEEN NOUR ALI";
+   printf("ORIGINAL STRING IS : %s\n", str);
+    printf("\n");
+  
+    printf("SWAPPED STRING IS %c",str);
+      swap_word(str);
+   // printf("SWAPPED STRING IS : %s\n", str);
+   
+    return 0;
+}
+//FOURTH WAY THE BEST WAY
+
+void reverseWord(char*str,int f,int l)
+{
+    char temp;
+    for(;f<=l;)
+    {
+        temp=str[f];
+        str[f]=str[l];
+        str[l]=temp;
+        f++;
+        l--;
+    }
+}
+
+
+void string_reverseWords(char*str)
+{
+    int i,f=0,l,len=string_len(str);
+    reverseWord(str,0,len-1);
+    for(i=0;str[i];i++)
+    {
+        if(str[i]==' ')
+        {
+            l=i-1;
+            reverseWord(str,f,l);
+            f=i+1;
+        }
+        else
+        {
+        }
+    }
+     l=i-1;
+     reverseWord(str,f,l);
+
+}
+
+
+
+int main()
+{
+
+    char str[]="Iam work as an embedded software engineer for 6 years";
+
+    string_print(str);
+    string_reverseWords(str);
+    string_print(str);
+
+    return 0;
+}
+***************************************************************************************************
+										#TASK_02.......LEC 17
+
+ how to read static global varaible from another file with 3 ways
+//FIRST WAY EXTERNAL DECLARATION
+
+file1.c
+static int global_variable = 300;
+extern int global_variable;
+
+file2.c
+extern int global_variable;
+int main(){
+int value = global_variable;
+}
+
+//SECOND WAY FUNCTION ACCESS STATIC GLOBAL VARAIBLE
+file1.c
+static int global_variable = 300;
+int fun_global_variable(void){
+return global_variable;
+}
+
+file2.c
+#include "file1.c"
+int main(){
+int value = func_global_variable();
+}
+
+//THIRD WAY AS FILES TO CALL 
+file1.c
+extrn int global_variable;
+
+#include "file1.c"
+static int global_variable = 300;
+
+file2.c
+#include "file1.c"
+int main(){
+int value = global_variable;
+}
+
+//FOURTH WAY USING POINTER
+file1.c
+static int global_variable = 300;
+
+file2.c
+extern int global_variable;
+int main(){
+int *ptr = &global_variable;
+int value = *ptr;
+}
+***************************************************************************************************
+TERNARY OPERATOR TASK   
+BENIFTS FROM SECTIONS MEMORY
+***************************************************************************************************
+										#TASK_03.......LEC 18
+
+void take_temp(int temp)
+{
+    static int flag;
+    if(flag==0)
+    {
+        max=temp;
+        min=temp;
+        flag=1;
+    }
+    if(temp>max)
+    {
+        max=temp;
+    }
+    if(temp<min)
+    {
+        min=temp;
+    }
+}
+
+int get_max(void)
+{
+    return max;
+}
+int get_min(void)
+{
+   return min;
+}
+int main()
+{
+    int x;
+    take_temp(35);
+     take_temp(5);
+      take_temp(10);
+       take_temp(15);
+        take_temp(50);
+         take_temp(-5);
+         while(1)
+         {
+             scanf("%d",&x);
+             if(x==0)
+                printf("max = %d\n",get_max());
+             else if(x==1)
+                printf("min = %d\n",get_min());
+             else
+                take_temp(x);
+         }
+    return 0;
+}
+***************************************************************************************************

@@ -1,0 +1,133 @@
+ARRAYOFSTRINGPOINTER TO POINTER
+
+void arrayOfString_print(char**arr,int size)
+{
+    int i,j;
+    for(i=0; i<size; i++)
+    {
+        // printf("%d\n",arr[i]);
+        string_print(arr[i]);//will print strings in arr 
+	//printf("%d",arr[i]); will print 6 adresses of strings
+        /* printf("%s",arr[i]);
+         for(j=0;arr[i][j]!=0;j++)//to acescess letters in strings
+         {
+             printf("%c",arr[i][j]);
+         }
+         printf("\n");*/
+    }
+    printf("=======================================\n");
+}
+ int main()
+{  char s1[]="ali wazeer";
+    char s2[]="nada";
+    char s3[]="noor";
+    char *arr[10]={s1,s2,s3,"motaz ahmed","bahy","fathy","m!ohamed ramdan","3bsawy","abdel rahman"};
+    arrayOfString_print(arr,6);
+    printf("%c  %d  %d\n",arr[0][0]);
+    arrayOfString_print(arr,8);
+    swap_pointers)arr+3,&arr[4]);
+    arrayOfString_print(arr,8);
+    
+    return 0;
+}
+******************************************************
+int arrayOfString_search(char**arr,int size,char*s)
+{
+    int i;
+    for(i=0; i<size; i++)
+    {
+        if(string_compare4(arr[i],s)==1)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+int main()
+{  char s1[]="ali wazeer";
+    char s2[]="nada";
+    char s3[]="noor";
+    char s[]="fathy";
+    char *arr[10]={s1,s2,s3,"motaz ahmed","bahy","fathy","m!ohamed ramdan","3bsawy","abdel rahman"};
+    arrayOfString_print(arr,8);
+    printf("%c  %d  %d\n",arr[0][0]);
+    arrayOfString_print(arr,8);
+    swap_pointers)arr+3,&arr[4]);
+    arrayOfString_print(arr,8);
+    int x = arrayOfString_search(arr,8,s);
+    printf("\n%d\n",x);
+    
+    return 0;
+}
+**************************************************************************************
+void arrayOfString_sort(char**arr,int size)
+{
+    int i,j,temp,c=0,sortedFlag;
+
+    for(j=0; j<size; j++)
+    {
+        sortedFlag=1;
+        for(i=0; i<size-1-j; i++)
+        {
+            c++;
+            if(string_compare6(arr[i+1],arr[i])==-1)
+            {
+                swap_pointers(&arr[i+1],&arr[i]);
+                sortedFlag=0;
+            }
+
+        }
+        if(sortedFlag==1)
+        {
+            break;
+        }
+
+    }
+    printf("s=%d c=%d\n",size,c);
+
+}
+int main()
+{  char s1[]="ali wazeer";
+    char s2[]="nada";
+    char s3[]="noor";
+    char s[]="fathy";
+    char *arr[10]={s1,s2,s3,"motaz ahmed","bahy","fathy","m!ohamed ramdan","3bsawy","abdel rahman"};
+    arrayOfString_print(arr,6);
+    printf("%c  %d  %d\n",arr[0][0]);
+    arrayOfString_print(arr,8);
+   arrayOfString_sort(arr,8);
+    arrayOfString_print(arr,8);
+    int x = arrayOfString_search(arr,8,s);
+    printf("\n%d\n",x);
+    
+    return 0;
+}
+*******************************************************************************
+const int notes[7]= {200,100,50,20,10,5,1};
+int arr[7];
+
+
+void ATM(int n)
+{
+    int i;
+    for(i=0; i<7; i++)
+    {
+        arr[i]=n/notes[i];
+        n=n%notes[i];
+    }
+}
+void ATM_PRINT(void)
+{
+    int i;
+    for(i=0; i<7; i++)
+    {
+        printf("%d-> %d\n",notes[i],arr[i]);
+    }
+}
+int main()
+{
+
+ATM(1574);
+ATM_PRINT():
+array_print(arr,7);
+}
